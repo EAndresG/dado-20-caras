@@ -5,6 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dado de 20 Caras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -14,8 +19,33 @@
             <p class="eyebrow">Juego de mesa digital</p>
             <h1>Dado de 20 caras</h1>
             <p class="subtitle">
-                Gira el dado si no tienes uno a mano y sigue la aventura.
+                Gira el dado si no tienes uno a mano y sigue la aventura. Los números bajos son malas jugadas y los
+                altos son buenas jugadas.
             </p>
+
+            <section class="players-panel">
+                <div class="players-header">
+                    <div>
+                        <p class="section-kicker">Mesa de juego</p>
+                        <h2>Perfiles de jugador</h2>
+                    </div>
+                    <p id="active-player-label" class="active-player-label">No hay jugador activo</p>
+                </div>
+
+                <form id="player-form" class="player-form">
+                    <input id="player-name-input" type="text" maxlength="24" placeholder="Nombre del jugador" />
+                    <select id="player-class-select">
+                        <option value="Guerrero">Guerrero</option>
+                        <option value="Mago">Mago</option>
+                        <option value="Pícaro">Pícaro</option>
+                        <option value="Clérigo">Clérigo</option>
+                        <option value="Bárbaro">Bárbaro</option>
+                    </select>
+                    <button type="submit" class="secondary-btn">Añadir jugador</button>
+                </form>
+
+                <div id="player-list" class="player-list"></div>
+            </section>
 
             <div class="die-container">
                 <div class="die" id="die">
@@ -25,8 +55,11 @@
 
             <div class="buttons-row">
                 <button id="roll-btn">Girar dado</button>
+                <button id="next-turn-btn" class="secondary-btn">Siguiente turno</button>
                 <button id="history-btn" class="secondary-btn">Historial</button>
             </div>
+
+            <p id="turn-helper" class="turn-helper">Elige un jugador antes de lanzar el dado.</p>
 
             <div class="result-box">
                 <p class="result-label">Resultado</p>
@@ -38,16 +71,16 @@
     <div id="history-modal" class="modal hidden">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Historial de tiradas</h2>
+                <div>
+                    <h2>Historial de tiradas</h2>
+                    <p id="history-player-label" class="history-player-label"></p>
+                </div>
+                <select id="history-player-select" class="history-player-select"></select>
                 <button id="close-history-btn" class="secondary-btn">Cerrar</button>
             </div>
             <ul id="history-list" class="history-list"></ul>
         </div>
     </div>
-
-    <script src="script.js"></script>
-    </section>
-    </main>
 
     <script src="script.js"></script>
 </body>
